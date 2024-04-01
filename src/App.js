@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Flower from "./Flower";
+import Surprise from './Surprise';
 
 function App() {
+  const [ show, setShow ] = useState(false);
+  const updateFlower = () => {
+   setShow(!show);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>Hi, Marinka!</h1>
+        <button className='btn' onClick={() => updateFlower()}>{ show ? "For you" : "Click to get" }</button>  
+        <p>{ show ? <Flower/> : <Surprise/> }</p>
     </div>
+    
   );
 }
 
